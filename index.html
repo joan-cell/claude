@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 基础 SEO -->
+    <title>Claude API 中文版 | Claude Opus 5.5 / Sonnet 5.5 API 接口 | 免费 Claude API Key 获取</title>
+    <meta name="description" content="2026 年专业 Claude API 中转服务，提供最新 Claude Opus 5.5、Sonnet 5.5、Haiku 4.5、Fable 5.1 免费 API 接口。国内直连，低延迟，稳定快速，支持中文对话、代码生成、文档分析等功能，注册即送免费额度！">
+    <meta name="keywords" content="Claude API,Claude Opus 5.5,Claude Sonnet 5.5,Claude Haiku 4.5,Claude Fable 5.1,Claude API Key,Claude中文版,Claude API接口,免费Claude API,Claude API中转,Anthropic API,AI对话API,代码生成API">
+    <meta name="author" content="Claude API 中转站">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="zh-CN">
+    <link rel="canonical" href="https://quanzil.com/">
+
+    <!-- Open Graph / 微信、Facebook 分享 -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Claude API 中转站">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://quanzil.com/">
+    <meta property="og:title" content="【2026 年最新】Claude API 中转站 | 免费 Claude Opus 5.5 API 服务">
+    <meta property="og:description" content="专业 Claude API 中转平台，提供 Claude Opus 5.5、Sonnet 5.5、Haiku 4.5、Fable 5.1 等全系列模型 API 接口。国内直连稳定快速，支持中文对话、代码生成、文档分析，注册即送免费额度！">
+    <meta property="og:image" content="https://quanzil.com/og-image.png">
+
+    <!-- Twitter 卡片 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="【2026 年最新】Claude API 中转站 | 免费 Claude Opus 5.5 API 服务">
+    <meta name="twitter:description" content="专业 Claude API 中转平台，提供 Claude Opus 5.5、Sonnet 5.5、Haiku 4.5、Fable 5.1 等全系列模型 API 接口。国内直连稳定快速，支持中文对话、代码生成、文档分析，注册即送免费额度！">
+    <meta name="twitter:image" content="https://quanzil.com/og-image.png">
+
+    <!-- 缓存控制 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- 结构化数据（JSON-LD），有助于搜索引擎富摘要收录 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Claude API 中转站",
+      "url": "https://quanzil.com/",
+      "description": "国内直连 Claude API 中转服务，支持最新 Claude Opus 5.5 / Sonnet 5.5 / Haiku 4.5 / Fable 5.1。",
+      "inLanguage": "zh-CN"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Claude API 中转服务",
+      "description": "提供最新 Claude Opus 5.5、Sonnet 5.5、Haiku 4.5、Fable 5.1 的 API 中转接入，国内直连、低延迟、超值定价。",
+      "brand": { "@type": "Brand", "name": "Claude API 中转站" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://quanzil.com/",
+        "priceCurrency": "CNY",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "如何获取免费的 Claude API Key？",
+          "acceptedAnswer": { "@type": "Answer", "text": "访问 https://quanzil.com 免费注册即可获取 API 密钥并领取免费额度。" }
+        },
+        {
+          "@type": "Question",
+          "name": "支持哪些 Claude 模型？",
+          "acceptedAnswer": { "@type": "Answer", "text": "支持最新的 Claude Opus 5.5、Sonnet 5.5、Haiku 4.5 与 Fable 5.1 全系列模型。" }
+        },
+        {
+          "@type": "Question",
+          "name": "如何从官方 API 迁移？",
+          "acceptedAnswer": { "@type": "Answer", "text": "100% 兼容官方 Anthropic 接口，只需将 base_url 修改为 https://quanzil.com 即可无缝迁移。" }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #0b0d1a;
+            --bg-soft: #12152b;
+            --card: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent: #ff7a45;
+            --accent-2: #7c5cff;
+            --accent-3: #22d3ee;
+            --text: #eef1ff;
+            --text-dim: #a4abce;
+            --radius: 18px;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .bg-glow {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(600px circle at 15% 15%, rgba(124, 92, 255, 0.22), transparent 60%),
+                radial-gradient(700px circle at 85% 10%, rgba(255, 122, 69, 0.18), transparent 55%),
+                radial-gradient(800px circle at 50% 100%, rgba(34, 211, 238, 0.15), transparent 60%);
+        }
+
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(14px);
+            background: rgba(11, 13, 26, 0.72);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+        .logo-mark {
+            width: 34px; height: 34px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: grid; place-items: center;
+            font-size: 1.1rem;
+        }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { color: var(--text-dim); font-size: 0.95rem; transition: color .2s; }
+        .nav-links a:hover { color: var(--text); }
+        .btn {
+            display: inline-block;
+            padding: 11px 22px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(124, 92, 255, 0.35);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(124, 92, 255, 0.5); }
+        .btn-ghost { border: 1px solid var(--card-border); color: var(--text); }
+        .btn-ghost:hover { border-color: var(--accent); }
+
+        @media (max-width: 720px) { .nav-links { display: none; } }
+
+        /* Hero */
+        .hero { padding: 90px 0 70px; text-align: center; }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--card-border);
+            background: var(--card);
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 26px;
+        }
+        .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #22d3ee; box-shadow: 0 0 12px #22d3ee; }
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+        .hero h1 .grad {
+            background: linear-gradient(120deg, var(--accent), var(--accent-2) 55%, var(--accent-3));
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .hero p.sub { font-size: 1.15rem; color: var(--text-dim); max-width: 640px; margin: 0 auto 36px; }
+        .hero-tags {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 40px;
+        }
+        .tag {
+            padding: 8px 16px; border-radius: 12px;
+            background: var(--card); border: 1px solid var(--card-border);
+            font-size: 0.92rem; color: var(--text-dim);
+        }
+        .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* Section shell */
+        section { padding: 80px 0; }
+        .section-head { text-align: center; margin-bottom: 54px; }
+        .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 12px; }
+        .section-head p { color: var(--text-dim); font-size: 1.05rem; }
+
+        /* Model cards */
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .model-card {
+            position: relative;
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 30px 26px;
+            transition: transform .25s, border-color .25s;
+            overflow: hidden;
+        }
+        .model-card::before {
+            content: "";
+            position: absolute; inset: 0;
+            background: linear-gradient(160deg, rgba(124,92,255,0.10), transparent 60%);
+            opacity: 0; transition: opacity .25s;
+        }
+        .model-card:hover { transform: translateY(-6px); border-color: rgba(124, 92, 255, 0.4); }
+        .model-card:hover::before { opacity: 1; }
+        .model-card.featured { border-color: rgba(255, 122, 69, 0.5); }
+        .model-tag {
+            position: absolute; top: 18px; right: 18px;
+            font-size: 0.72rem; font-weight: 700; letter-spacing: .5px;
+            padding: 4px 10px; border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
+        }
+        .model-card h3 { font-size: 1.4rem; margin-bottom: 6px; }
+        .model-id { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.8rem; color: var(--accent-3); margin-bottom: 16px; }
+        .model-card .desc { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 18px; min-height: 66px; }
+        .model-card ul { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 20px; }
+        .model-card li { font-size: 0.9rem; color: var(--text); display: flex; gap: 10px; align-items: center; }
+        .model-card li::before { content: "▹"; color: var(--accent); }
+        .price-pill {
+            display: inline-block; padding: 7px 14px; border-radius: 10px;
+            background: rgba(34, 211, 238, 0.12); color: var(--accent-3);
+            font-weight: 700; font-size: 0.9rem;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px;
+        }
+        .feature {
+            background: var(--card); border: 1px solid var(--card-border);
+            border-radius: var(--radius); padding: 28px;
+            transition: transform .25s, background .25s;
+        }
+        .feature:hover { transform: translateY(-4px); background: rgba(255,255,255,0.07); }
+        .feature .ico { font-size: 1.8rem; width: 56px; height: 56px; border-radius: 14px;
+            display: grid; place-items: center; margin-bottom: 16px;
+            background: linear-gradient(135deg, rgba(255,122,69,0.18), rgba(124,92,255,0.18)); }
+        .feature h4 { font-size: 1.15rem; margin-bottom: 8px; }
+        .feature p { color: var(--text-dim); font-size: 0.94rem; }
+
+        /* Code + stats */
+        .quickstart { display: grid; grid-template-columns: 1.3fr 1fr; gap: 34px; align-items: stretch; }
+        @media (max-width: 860px) { .quickstart { grid-template-columns: 1fr; } }
+        .code-block {
+            background: #070812; border: 1px solid var(--card-border);
+            border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+        }
+        .code-head {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 18px; border-bottom: 1px solid var(--card-border);
+            background: rgba(255,255,255,0.03);
+        }
+        .code-head .dots { display: flex; gap: 7px; }
+        .code-head .dots span { width: 12px; height: 12px; border-radius: 50%; }
+        .dots span:nth-child(1){background:#ff5f56}.dots span:nth-child(2){background:#ffbd2e}.dots span:nth-child(3){background:#27c93f}
+        .copy-btn { background: none; border: 1px solid var(--card-border); color: var(--text-dim);
+            padding: 4px 12px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; transition: .2s; }
+        .copy-btn:hover { color: var(--text); border-color: var(--accent); }
+        pre { padding: 22px; overflow-x: auto; font-size: 0.88rem; line-height: 1.65; }
+        code { font-family: "SFMono-Regular", Consolas, monospace; }
+        .tok-c { color: #6b7394; } .tok-s { color: #7ee787; } .tok-k { color: #ff9d76; } .tok-f { color: #79c0ff; }
+
+        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .stat {
+            background: var(--card); border: 1px solid var(--card-border);
+            border-radius: var(--radius); padding: 24px; text-align: center;
+        }
+        .stat .num {
+            font-size: 2rem; font-weight: 800;
+            background: linear-gradient(120deg, var(--accent), var(--accent-3));
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .stat .lbl { color: var(--text-dim); font-size: 0.88rem; margin-top: 4px; }
+
+        /* CTA banner */
+        .cta-banner {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(124,92,255,0.18), rgba(255,122,69,0.12));
+            border: 1px solid var(--card-border);
+            border-radius: 24px; padding: 56px 30px; margin: 20px 0 0;
+        }
+        .cta-banner h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin-bottom: 14px; }
+        .cta-banner p { color: var(--text-dim); margin-bottom: 28px; }
+
+        /* Footer */
+        footer { border-top: 1px solid var(--card-border); padding: 40px 0; margin-top: 80px; text-align: center; color: var(--text-dim); font-size: 0.9rem; }
+        footer a.link { color: var(--accent-3); }
+
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+        .fade-up.in { opacity: 1; transform: none; }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <header>
+        <div class="container nav">
+            <div class="logo"><span class="logo-mark">✦</span> Claude API 中转站</div>
+            <nav class="nav-links">
+                <a href="#models">模型系列</a>
+                <a href="#features">服务优势</a>
+                <a href="#quickstart">快速开始</a>
+            </nav>
+            <a class="btn btn-primary" href="https://quanzil.com" target="_blank" rel="noopener">获取 API Key</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero container">
+            <div class="badge"><span class="dot"></span> 已同步最新 Claude 5 系列模型</div>
+            <h1>接入 <span class="grad">最新一代 Claude</span><br>让 AI 能力触手可及</h1>
+            <p class="sub">国内直连中转服务，全面支持 Claude Opus 5.5、Sonnet 5.5、Haiku 4.5 与 Fable 5.1。100% 兼容官方接口，改一行 base_url 即可迁移。</p>
+            <div class="hero-tags">
+                <span class="tag">🚀 国内直连</span>
+                <span class="tag">⚡ 毫秒级延迟</span>
+                <span class="tag">🔒 加密稳定</span>
+                <span class="tag">💰 官方 7 折起</span>
+                <span class="tag">🧠 100 万上下文</span>
+            </div>
+            <div class="hero-cta">
+                <a class="btn btn-primary" href="https://quanzil.com" target="_blank" rel="noopener">免费注册领取额度</a>
+                <a class="btn btn-ghost" href="#models">查看模型对比</a>
+            </div>
+        </section>
+
+        <!-- Models -->
+        <section id="models" class="container">
+            <div class="section-head">
+                <h2>Claude 模型系列</h2>
+                <p>从极速轻量到旗舰推理，按需选择最合适的模型</p>
+            </div>
+            <div class="models-grid">
+                <div class="model-card featured fade-up">
+                    <span class="model-tag">旗舰推荐</span>
+                    <h3>Claude Opus 5.5</h3>
+                    <div class="model-id">claude-opus-5-5</div>
+                    <p class="desc">面向长程 Agent 编码与知识工作的旗舰模型，能自主拆解并修复复杂的多系统缺陷。</p>
+                    <ul>
+                        <li>100 万 token 上下文</li>
+                        <li>自适应深度推理（默认开启）</li>
+                        <li>顶级代码与架构决策能力</li>
+                        <li>最高 128K token 输出</li>
+                    </ul>
+                    <span class="price-pill">比官方低约 25%</span>
+                </div>
+
+                <div class="model-card fade-up">
+                    <h3>Claude Sonnet 5.5</h3>
+                    <div class="model-id">claude-sonnet-5-5</div>
+                    <p class="desc">速度与智能的最佳平衡点，日常开发的主力模型，性价比出色。</p>
+                    <ul>
+                        <li>100 万 token 上下文</li>
+                        <li>快速响应 + 自适应思考</li>
+                        <li>强大的多语言与视觉理解</li>
+                        <li>最高 128K token 输出</li>
+                    </ul>
+                    <span class="price-pill">比官方低约 30%</span>
+                </div>
+
+                <div class="model-card fade-up">
+                    <h3>Claude Haiku 4.5</h3>
+                    <div class="model-id">claude-haiku-4-5</div>
+                    <p class="desc">最快的模型，接近前沿智能，适合高并发、低延迟的实时任务。</p>
+                    <ul>
+                        <li>200K token 上下文</li>
+                        <li>极速响应，成本最优</li>
+                        <li>扩展思考能力</li>
+                        <li>文本摘要与快速对话</li>
+                    </ul>
+                    <span class="price-pill">比官方低约 40%</span>
+                </div>
+
+                <div class="model-card fade-up">
+                    <span class="model-tag">高阶推理</span>
+                    <h3>Claude Fable 5.1</h3>
+                    <div class="model-id">claude-fable-5-1</div>
+                    <p class="desc">面向高难度推理与超长时程 Agent 工作，当其他模型仍力有不逮时的终极选择。</p>
+                    <ul>
+                        <li>100 万 token 上下文</li>
+                        <li>始终开启的高强度推理</li>
+                        <li>攻克最复杂的评测任务</li>
+                        <li>最高 128K token 输出</li>
+                    </ul>
+                    <span class="price-pill">比官方低约 20%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="container">
+            <div class="section-head">
+                <h2>为什么选择我们的中转服务</h2>
+                <p>专为中国开发者打造的 Claude API 接入方案</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature fade-up"><div class="ico">🌐</div><h4>国内直连访问</h4><p>无需科学上网，直接访问 Claude API，链路优化延迟低至 30ms，稳定可靠。</p></div>
+                <div class="feature fade-up"><div class="ico">⚡</div><h4>智能负载均衡</h4><p>多节点智能调度与故障自动切换，高并发下依旧保持超快响应。</p></div>
+                <div class="feature fade-up"><div class="ico">🔒</div><h4>企业级安全</h4><p>全链路端到端加密，绝不存储任何对话数据，隐私安全有保障。</p></div>
+                <div class="feature fade-up"><div class="ico">💰</div><h4>透明超值定价</h4><p>相比官方节省 20%-40% 成本，支持人民币付款，按量计费更灵活。</p></div>
+                <div class="feature fade-up"><div class="ico">🛠️</div><h4>零改造兼容</h4><p>100% 兼容官方 Anthropic 接口，仅需修改 base_url 即可无缝迁移。</p></div>
+                <div class="feature fade-up"><div class="ico">📞</div><h4>7×24 中文支持</h4><p>专业工程团队全天候在线，快速响应并解决你的一切集成问题。</p></div>
+            </div>
+        </section>
+
+        <!-- Quickstart -->
+        <section id="quickstart" class="container">
+            <div class="section-head">
+                <h2>快速开始</h2>
+                <p>几分钟内将最新 Claude 模型集成到你的应用</p>
+            </div>
+            <div class="quickstart">
+                <div class="code-block fade-up">
+                    <div class="code-head">
+                        <div class="dots"><span></span><span></span><span></span></div>
+                        <span style="font-size:.82rem;color:var(--text-dim)">quickstart.py</span>
+                        <button class="copy-btn" onclick="copyCode()">复制代码</button>
+                    </div>
+<pre id="code"><code><span class="tok-c"># 安装依赖: pip install anthropic</span>
+<span class="tok-k">import</span> anthropic
+
+<span class="tok-c"># 初始化客户端，仅需替换 base_url</span>
+client = anthropic.<span class="tok-f">Anthropic</span>(
+    api_key=<span class="tok-s">"your_api_key"</span>,
+    base_url=<span class="tok-s">"https://quanzil.com"</span>
+)
+
+<span class="tok-c"># 使用最新旗舰模型发送消息</span>
+response = client.messages.<span class="tok-f">create</span>(
+    model=<span class="tok-s">"claude-opus-5-5"</span>,
+    max_tokens=<span class="tok-f">1024</span>,
+    messages=[
+        {
+            <span class="tok-s">"role"</span>: <span class="tok-s">"user"</span>,
+            <span class="tok-s">"content"</span>: <span class="tok-s">"请帮我写一个 Python 函数来计算斐波那契数列"</span>
+        }
+    ]
+)
+<span class="tok-f">print</span>(response.content[<span class="tok-f">0</span>].text)</code></pre>
+                </div>
+                <div class="stats fade-up">
+                    <div class="stat"><div class="num">30ms</div><div class="lbl">平均响应延迟</div></div>
+                    <div class="stat"><div class="num">99.9%</div><div class="lbl">服务可用性</div></div>
+                    <div class="stat"><div class="num">1M</div><div class="lbl">最大上下文</div></div>
+                    <div class="stat"><div class="num">24/7</div><div class="lbl">中文技术支持</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="container">
+            <div class="cta-banner fade-up">
+                <h2>准备好接入最新 Claude 了吗？</h2>
+                <p>访问 <a class="link" href="https://quanzil.com" target="_blank" rel="noopener">https://quanzil.com</a> 免费注册并获取你的 API 密钥</p>
+                <a class="btn btn-primary" href="https://quanzil.com" target="_blank" rel="noopener">立即免费开始</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>专业的 Claude API 中转服务 · 让 AI 开发更简单</p>
+            <p style="margin-top:8px">官网：<a class="link" href="https://quanzil.com" target="_blank" rel="noopener">quanzil.com</a> · 最后更新：2026-09-30</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode() {
+            const text = document.getElementById('code').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const old = btn.innerText;
+                btn.innerText = '已复制 ✓';
+                setTimeout(() => btn.innerText = old, 1600);
+            });
+        }
+
+        // Scroll reveal
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade-up').forEach((el, i) => {
+            el.style.transitionDelay = (i % 4 * 0.08) + 's';
+            io.observe(el);
+        });
+    </script>
+</body>
+</html>
